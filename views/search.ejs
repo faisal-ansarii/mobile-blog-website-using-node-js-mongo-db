@@ -1,0 +1,16 @@
+<h1 class="pb-4">Search Results</h1>
+
+<div class="row row-cols-2 row-cols-lg-5 g-2 g-lg-3">
+  <% if(phone != '') { %>
+    <% phone.forEach(function(phone, index){ %>
+    <a href="/phone/<%= phone._id %>" class="col text-center category__link">
+      <div class="category__img category__img--large shadow">
+        <img src="/uploads/<%= phone.image %>" alt="<%= phone.name %>" loading="lazy">
+      </div>
+      <div class="text-light pt-1"><%= phone.name %></div>
+    </a>
+    <% }) %>
+  <% } else { %>
+    <p class="text-light">No items found.</p>
+  <% } %>
+</div>

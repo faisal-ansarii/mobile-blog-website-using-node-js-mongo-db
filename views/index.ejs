@@ -1,0 +1,172 @@
+	<div class="row flex-lg-row-reverse align-items-center g-5 py-4 mb-4">
+		<div class="col-12 col-lg-6">
+			<img src="/img/hero-image-.png" width="607" height="510" class="d-block mx-lg-auto img-fluid" loading="lazy" alt="Cooking With Node.js">
+		</div>
+		<div class="col-12 col-lg-6">
+			<h1 class="display-5 fw-bold text-warning mb-3">Blog Market of Latest Android and Apple Phone</h1>
+			<p class="text-light lead">
+				We provide best And accurate information about latest phone specification and model price etc.
+			</p>
+			<div class="d-grid gap-2 d-md-flex justify-content-md-start">
+				<a href="/explore-latest" class="btn btn-outline-warning btn-lg px-4 me-md-2">Explore Latest</a>
+				<a href="/explore-random" class="btn btn-outline-light btn-lg  px-4 me-md-2">Show Random</a>
+			</div>
+		</div>
+	</div>
+
+
+<!-- Categories Start -->
+
+
+	<div class="row row-cols-2 row-cols-lg-6 g-2 g-lg-3 py-4">
+
+
+		<% if(categories != '') { %>
+		<% categories.forEach(function(category, index) { %>
+			<a href="/categories/<%- category.name %>" class="col text-center category__link">
+				<div class="category__img shadow">
+				<img src="img/<%- category.image %>" alt="<%- category.name %>" loading="lazy">
+			</div>
+				<div class="text-light pt-1"><%- category.name %></div>
+			</a>
+		<% }) %>
+		<% } %>
+		
+		<a href="/categories" class="col text-center category__link">
+			<div class="category__img shadow">
+				<img src="img/view-all.jpg" alt="View All Category" loading="lazy">
+			</div>
+			<div class="text-light pt-1">View All Category</div>
+		</a>
+	</div>
+	
+<!-- Categories End -->
+
+
+<!-- Latest Start -->
+
+
+<section class="pb-4 pt-4">
+	<div class="d-flex mb-2 text-light align-items-center">
+		<h2>Latest Mobile Blogs</h2>
+    	<a href="/explore-latest" class="text-light ms-auto">View More</a>
+	</div>
+
+<div class="row row-cols-2 row-cols-lg-5 g-2 g-lg-3">
+
+    <% if(phone != '') { %>
+		
+		<% phone.latest.forEach(function(phone, index){ %>
+			
+			<a href="/phone/<%= phone._id %>" class="col text-center category__link">
+				<div class="category__img category__img--large shadow">
+				<img src="/uploads/<%= phone.image %>" alt="<%= phone.name %>" loading="lazy">
+				</div>
+				<div class="text-light pt-1"><%= phone.name %></div>
+			</a>
+		<% }) %>
+		
+	<% } else { %>
+			<p>No items found.</p>
+		<% } %>
+
+</div>
+</section>
+
+<!-- Latest End -->
+
+<!-- Apple Start -->
+<section class="pb-4 pt-4">
+	<div class="d-flex mb-2 text-light align-items-center">
+	<h2>Apple Phone</h2>
+	<a href="/categories/Apple" class="text-light ms-auto">View More</a>
+	</div>
+
+	<div class="row row-cols-2 row-cols-lg-5 g-2 g-lg-3" > 
+	<% if(typeof phone.apple !=='undefined' && phone.apple.length> 0) { %>
+		<% phone.apple.forEach(function(phone, index){ %>
+		<a href="/phone/<%= phone._id %>" class="col text-center category__link">
+			<div class="category__img category__img--large shadow">
+				<img src="/uploads/<%= phone.image %>" alt="<%= phone.name %>" loading="lazy">
+			</div>
+			<div class="text-light pt-1">
+			<%= phone.name %>
+			</div>
+		</a>
+		<% }) %>
+			<% } else { %>
+			<p class="text-light">No items found.</p>
+			<% } %>
+	</div>
+</section>
+<!-- Apple End -->
+
+
+
+
+<!-- samsung Start -->
+<section class="pb-4 pt-4">
+	<div class="d-flex mb-2 text-light align-items-center">
+	<h2>Samsung Phone</h2>
+	<a href="/categories/Samsung" class="text-light ms-auto">View More</a>
+	</div>
+
+	<div class="row row-cols-2 row-cols-lg-5 g-2 g-lg-3" > 
+	<% if(typeof phone.samsung !=='undefined' && phone.samsung.length> 0) { %>
+		<% phone.samsung.forEach(function(phone, index){ %>
+		<a href="/phone/<%= phone._id %>" class="col text-center category__link">
+			<div class="category__img category__img--large shadow">
+				<img src="/uploads/<%= phone.image %>" alt="<%= phone.name %>" loading="lazy">
+			</div>
+			<div class="text-light pt-1">
+			<%= phone.name %>
+			</div>
+		</a>
+		<% }) %>
+			<% } else { %>
+			<p class="text-light">No items found.</p>
+			<% } %>
+	</div>
+</section>
+<!-- samsung end -->
+
+<!-- Xiaomi Start -->
+<section class="pb-4 pt-4">
+	<div class="d-flex mb-2 text-light align-items-center">
+	<h2>Xiaomi Phone</h2>
+	<a href="/categories/MI" class="text-light ms-auto">View More</a>
+	</div>
+
+	<div class="row row-cols-2 row-cols-lg-5 g-2 g-lg-3" > 
+	<% if(typeof phone.mi !=='undefined' && phone.mi.length> 0) { %>
+		<% phone.mi.forEach(function(phone, index){ %>
+		<a href="/phone/<%= phone._id %>" class="col text-center category__link">
+			<div class="category__img category__img--large shadow">
+				<img src="/uploads/<%= phone.image %>" alt="<%= phone.name %>" loading="lazy">
+			</div>
+			<div class="text-light pt-1">
+			<%= phone.name %>
+			</div>
+		</a>
+		<% }) %>
+			<% } else { %>
+			<p class="text-light">No items found.</p>
+			<% } %>
+	</div>
+</section>
+<!-- samsung end -->
+
+
+<!-- Submit - Start -->
+<section class="px-4 py-5 my-5 text-center">
+	<img src="/img/publish-blog.png" class="d-block mx-auto mb-4 img-fluid" alt="Publish your Blog for FREE today" width="566" height="208" loading="lazy">
+	<h1 class="display-5 text-light fw-bold">Publish Blog</h1>
+	<div class="col-lg-6 mx-auto">
+		<p class="lead text-light mb-4">Publish your Blog for free.</p>
+		<div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
+			<a href="/submit-blog" class="btn btn-outline-warning btn-lg">Submit Blog</a>
+		</div>
+	</div>
+</section>
+
+<!-- Submit - End -->
